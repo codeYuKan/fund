@@ -20,14 +20,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * <pre>
- * 描述： MyBatis基础配置
- * 构建组：ddjf-wx-group
- * 作者:haojing
- * 邮箱:haojing@ddjf.com.cn
- * 日期:2017/8/23 19:00
- * 版权：大道金服
- * </pre>
+ * @author yukan
  */
 @Configuration
 @EnableTransactionManagement

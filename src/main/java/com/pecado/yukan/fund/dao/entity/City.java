@@ -1,5 +1,8 @@
 package com.pecado.yukan.fund.dao.entity;
 
+/**
+ * @author yukan
+ */
 public class City {
     private Integer id;
 
