@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pecado.yukan.fund.dao.mapper.FundDataMapper">
+  <resultMap id="BaseResultMap" type="com.pecado.yukan.fund.dao.entity.FundData">
+    <id column="code" jdbcType="VARCHAR" property="code" />
+    <result column="net_date" jdbcType="TIMESTAMP" property="netDate" />
+    <result column="net_asset_value" jdbcType="DECIMAL" property="netAssetValue" />
+    <result column="net_accumulated_value" jdbcType="DECIMAL" property="netAccumulatedValue" />
+    <result column="daily_growth_rate" jdbcType="DECIMAL" property="dailyGrowthRate" />
+    <result column="subscription_status" jdbcType="VARCHAR" property="subscriptionStatus" />
+    <result column="redeem_status" jdbcType="VARCHAR" property="redeemStatus" />
+    <result column="dividend_distribution" jdbcType="VARCHAR" property="dividendDistribution" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, net_date, net_asset_value, net_accumulated_value, daily_growth_rate, subscription_status, 
+    redeem_status, dividend_distribution
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_data
+    where code = #{code,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from fund_data
+    where code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.pecado.yukan.fund.dao.entity.FundData">
+    insert into fund_data (code, net_date, net_asset_value, 
+      net_accumulated_value, daily_growth_rate, subscription_status, 
+      redeem_status, dividend_distribution)
+    values (#{code,jdbcType=VARCHAR}, #{netDate,jdbcType=TIMESTAMP}, #{netAssetValue,jdbcType=DECIMAL}, 
+      #{netAccumulatedValue,jdbcType=DECIMAL}, #{dailyGrowthRate,jdbcType=DECIMAL}, #{subscriptionStatus,jdbcType=VARCHAR}, 
+      #{redeemStatus,jdbcType=VARCHAR}, #{dividendDistribution,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pecado.yukan.fund.dao.entity.FundData">
+    insert into fund_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="netDate != null">
+        net_date,
+      </if>
+      <if test="netAssetValue != null">
+        net_asset_value,
+      </if>
+      <if test="netAccumulatedValue != null">
+        net_accumulated_value,
+      </if>
+      <if test="dailyGrowthRate != null">
+        daily_growth_rate,
+      </if>
+      <if test="subscriptionStatus != null">
+        subscription_status,
+      </if>
+      <if test="redeemStatus != null">
+        redeem_status,
+      </if>
+      <if test="dividendDistribution != null">
+        dividend_distribution,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="netDate != null">
+        #{netDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netAssetValue != null">
+        #{netAssetValue,jdbcType=DECIMAL},
+      </if>
+      <if test="netAccumulatedValue != null">
+        #{netAccumulatedValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dailyGrowthRate != null">
+        #{dailyGrowthRate,jdbcType=DECIMAL},
+      </if>
+      <if test="subscriptionStatus != null">
+        #{subscriptionStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="redeemStatus != null">
+        #{redeemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dividendDistribution != null">
+        #{dividendDistribution,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pecado.yukan.fund.dao.entity.FundData">
+    update fund_data
+    <set>
+      <if test="netDate != null">
+        net_date = #{netDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netAssetValue != null">
+        net_asset_value = #{netAssetValue,jdbcType=DECIMAL},
+      </if>
+      <if test="netAccumulatedValue != null">
+        net_accumulated_value = #{netAccumulatedValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dailyGrowthRate != null">
+        daily_growth_rate = #{dailyGrowthRate,jdbcType=DECIMAL},
+      </if>
+      <if test="subscriptionStatus != null">
+        subscription_status = #{subscriptionStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="redeemStatus != null">
+        redeem_status = #{redeemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dividendDistribution != null">
+        dividend_distribution = #{dividendDistribution,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pecado.yukan.fund.dao.entity.FundData">
+    update fund_data
+    set net_date = #{netDate,jdbcType=TIMESTAMP},
+      net_asset_value = #{netAssetValue,jdbcType=DECIMAL},
+      net_accumulated_value = #{netAccumulatedValue,jdbcType=DECIMAL},
+      daily_growth_rate = #{dailyGrowthRate,jdbcType=DECIMAL},
+      subscription_status = #{subscriptionStatus,jdbcType=VARCHAR},
+      redeem_status = #{redeemStatus,jdbcType=VARCHAR},
+      dividend_distribution = #{dividendDistribution,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>
