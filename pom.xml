@@ -25,6 +25,12 @@
 	</properties>
 
 	<dependencies>
+        <!-- web with tomcat and spring mvc 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <!-- mybatis的依赖 -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -62,6 +68,13 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5</version>
+        </dependency>
+
+        <!-- web相关 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.9.RELEASE</version>
         </dependency>
     </dependencies>
 
